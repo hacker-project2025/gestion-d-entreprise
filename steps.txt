@@ -1,0 +1,20 @@
+les étapes pour envoyer votre code ou votre projet dans le dépôt Github du groupe
+
+-- cloner le répository du groupe dans le terminal de vscode
+	git clone https://github.com/hacker-project2025/gestion-d-entreprise.git
+
+-- un dossier nommé " gestion-d-entreprise " va apparaitre dans vscode
+
+
+-- copier les fichiers et les dossiers que vous voulez envoyer vers github
+
+-- entrer dans le dossier " gestion-d-entreprise " via la commande " cd /chemin " 
+	ps : veuillez changer le chemin par le chemin vers votre dossier
+
+-- exécutez : git add .
+
+-- git commit -m "ajoutez un petit message"
+
+-- git push origin main 
+
+
