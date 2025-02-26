@@ -1,0 +1,456 @@
+/* importation pour une utilisation locale du font : Poppins, télécharger Poppins via github et copier le dossier dans le projet pour faciliter son appel lors de son utilsation */
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url('poppins/Poppins-Regular.woff2') format('woff2'), url('poppins/Poppins-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* propriétés pour l'ensemble de la page*/
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+
+body, input{
+    font-family: "Poppins", sans-serif;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #251c35;
+    padding: 2rem;
+    display: flex; /* main est le conteneur de box donc si on veut centrer box, il faut que l'affichages des contents de main soit flexible*/
+    align-items: center; /* centrer verticalement les éléments de main c-a-d box*/
+    justify-content: center; /* centrer horizontalement ses contenus c-a-d box*/
+}
+
+/* l'élément box qui va contenir le inner-box aura une largeur max de 1020px et une hauteur de 640px*/
+.box{
+    position: relative;
+    width: 100%; /* ajouter un width de 100% car le display flex précédent removes par défaut la taille de ses contents*/
+    max-width: 1050px;
+    height: 700px;
+    background-color: #dfd8d8;
+    border-radius: 1.5rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27); /* ajout de shadow au box : 0 sur l'horizontal, 60px sur le vertical (qui a pour but d'ombrer le bottom), 40px de blur , -30px sur le dos et pour la color du shadow : 0 red, 0 green 0 blue et 0.27 pour la color pour le transparence*/
+}
+
+/* c'est le inner-box qui va contenir les principals contents du login et registration */
+.inner-box{
+    position: absolute;
+    width: calc(100% - 4.1rem); /* le inner-box couvre la totalité de box ,il faut lui enlever 4.1rem de width et height*/
+    height: calc(100% - 4.1rem);
+    top: 50%; /* positionner le inner-box au milieu de l'espace libre pour le centrer */
+    left: 50%; /* same thing */
+    transform: translate(-50%, -50%); /* centrer le inner-box dans le box*/
+}
+
+/* 1er content du inner-box*/
+.forms-wrap {
+    position: absolute;
+    height: 100%; /* donner la taille max de 100% au 1er contenu pour qu'il occupe toute  la hauteur du inner-box*/
+    width: 45%; /* ce 1er contenu ne couvrira que 45% du inner-box, pour laisser les 55% autre pour le 2e contenu qui est le CAROUSEL*/
+    top: 0; /* n'ajouter aucune marge de hauteur ni de largeur */
+    left: 0;
+    display: grid; /* mettre sous forme de tableau les contents du inner-box */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    transition: .8s ease-in-out;
+ }
+
+
+
+form{
+    max-width: 260px; /* la width maximum que le form va prendre sera de 260px*/
+    width: 100%;
+    margin: 0 auto; /* ajouter une marge de 0 du top et du bottom et auto sur left et right*/
+    height: 100%;  /* le height de form sera full par rapport à son container */
+    display: flex; /* vu que le display flex met tout le content sur une même ligne mais de deux colonnes différentes on doit encore arranger pour que les items soient sur une même colonne et différentes lignes*/
+    flex-direction: column; /* préciser que les items serotn fléxibles sur une même colonne */
+    justify-content: space-evenly; /* ajouter des espaces verticales de tailles égales entre les items */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: opacity 0.02s 0.4s;
+ }
+
+/* ne pas afficher le sig-up form*/
+form.sign-up-form{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+/* réduire la taille du logo */
+.logo{
+    display: flex; /* permettre le logo de s'adapter à telles et telles dimensions   */
+    align-items: center; /* centrer les éléments du div logo */
+}
+
+.logo img{
+    width: 100%;
+    margin-right: 0.3rem; 
+}
+
+/*.logo h4{
+    font-size: 1.1rem;
+    margin-top: -9px;
+    letter-spacing: -0.5px;
+    color: #151111;
+}*/
+
+.heading h2{
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: #151111;
+}
+
+.heading h6{
+    color: #6e6e6e;
+    font-weight: 400;
+    font-size: 0.85rem;
+    display: inline; /* pour mettre sur une même ligne le not regstered yet et le sign up*/ 
+}
+
+.toggle{
+    color: #151111;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.toggle:hover{
+    color: #286d28; /* 8371fd */
+}
+
+.input-wrap{
+    position: relative; 
+    height: 37px;
+    margin-bottom: 2rem;
+}
+
+.input-field{
+    position: absolute;
+    width: 100%; /* le champ input va avoir la même hauteur que son parent input-wrap*/
+    height: 100%; /* leur width seront le même aussi, c-a-d que input-field va occuper tout l'espace dans input-wrap */
+    background: none; /* n'utiliser que le bg offert par input-wrap */
+    border: none; /* n'ajouter aucune bordure sur le champ input */
+    outline: none;
+    border-bottom: 1px solid #bbb;
+    padding: 0; /* on doit s'assurer qu'il n'y a aucune marge sur le left*/
+    font-size: .95rem;
+    color: #151111;
+    transition: 0.4s; /* ralentir un peu le temps de changement du champ */
+}
+
+label{
+    position: absolute;
+    left: 0; /* n'ajouter aucune marge sur le left */
+    top: 50%; /* positionner le label au milieu du champ d'input */
+    transform: translateY(-50%); /* centrer verticalement le label et le input */
+    font-size: .95rem; /* définir la taille du texte en 0.95 rem*/
+    color: #6e6e6e;
+    pointer-events: none; /* on doit rendre le texte dans le label unclicable*/
+    transition: .4s ease;
+}
+
+/* les icones*/
+
+.input-wrap i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #2e585fd8;////////////////////////////
+}
+
+
+/* vu dans le js, quand l'input contient something, la classe va se changer en input-field.active
+même si on n'est pas focused on it */
+
+.input-field.active{
+    border-bottom-color: #151111; /* changer la color de la ligne de bordure en bas */
+}
+
+/* qiand le champ est sur la classe .active, on va juste accéder au label et le faire monter de 2px en haut*/
+.input-field.active + label {
+    font-size: .75rem;
+    top: -2px; /* déplacer le label de 2px vers le haut */
+    color: #251c35a4;
+}
+
+.sign-btn{
+    display: inline-block; /* aligner le bouton et les inputs dans le actual form */
+    width: 100%; /* occuper tout l'espace horizontalement : le btn aura la même width que les entry */
+    height: 43px; /* hauteur du butto définie sur 43px*/
+    background-color: #151111;
+    color: #fff; /* colorer le texte en white */
+    border: none; /* effacer les bordures */
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: .9rem; /* définir la taille du texte en .9rem */
+    margin-bottom: 2rem; /* ajouter un espacement de 2 rem sur le vertical : une marge de 2rem en Haut en 2rem en Bas*/
+    transition: 0.3s ease;
+}
+
+.sign-btn:hover {
+    background-color: #8371fd;
+}
+
+.text{
+    color: #6e6e6e; /* #bbb */
+    font-size: 0.85rem;
+    user-select: none;
+}
+
+.text a{
+    color: #6e6e6e;
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: #151111;
+    font-size: 0.85rem;
+}
+
+.text a:hover{
+    color: #4c3cb4;
+}
+
+main.sign-up-mode form.sign-in-form{
+    opacity: 0;
+    pointer-events: none;
+}
+
+main.sign-up-mode form.sign-up-form{
+    opacity: 1;
+    pointer-events: all;
+}
+
+main.sign-up-mode .forms-wrap {
+    left: 55%;
+}
+
+main.sign-up-mode .carousel{
+    left: 0%;
+}
+
+
+.carousel {
+    animation: gradient-animation 10s infinite; /* utilisation de la fonction gradient-animation pour le clip */
+    background: linear-gradient(120deg, #31ab19, #9531e7); 
+    background-size: 400%; /* à 100%, le gradient-animation n'agit que sur le côté dons on maximize le with à 400% */
+    position: absolute;
+    height: 100%; /* comme le 1er contenu, le carousel aura la même hauteur que le inner-box*/
+    width: 55%; /* sa largeur sera les 55% reste */
+    left: 45%; /* ajouter une marge de 45% du inner-box car il commence au 45% du width du inner-box */
+    top: 0; /* aucune marge concernant la hauteur du inner-box */
+    /*background-color: #47519eba;  #ffe0d2*/
+    border-radius: 1.25rem;
+    display: grid; /* grider les contenus c-a-d les mettre dans des cases */
+    grid-template-rows: auto 1fr;
+    padding-bottom: 2rem; /* ajouter une marge de 2rem en bas */
+    overflow: hidden; /* cacher les images qui ne sont pas affichées */
+    transition: .8s ease-in-out;
+
+}
+
+/* fonction pour le clip animation dans le carousel*/
+@keyframes gradient-animation{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+/* conteneur des images qui vont se défiler dans le carousel */
+.images-wrapper{
+    display: grid; /* grider les images */
+    grid-template-columns: 1fr; /* mettre chaque image à la 1ère colonne*/
+    grid-template-rows: 1fr; /* placer les images à la 1ère ligne */
+}
+
+.image{
+    padding-top: 2rem;
+    width: 100%; /* maximiser le width que les images vont prendre dans le images-wrapper */
+    grid-column: 1/2; /* déplacer les images en 2e colonne à la 1ère colonne*/ 
+    grid-row: 1/2; /* déplacer les images en 2e ligne à la 1ère ligne */
+    opacity: 0; /* ne pas encore afficher le reste des images */
+    transition: opacity 0.3s, transform 0.5s; /* ajouter le transform 0.6s car on veut appliquer les transformations durant une durée de 0.5s */
+}
+
+.img-1{
+    transform: translate(0, -50px); /* animation de la 1ère image : positionner la 1ere image à 0 sur l'axe x et -50px sur l'axe y*/
+}
+
+.img-2{
+    transform: scale(0.4, 0.5); /* smoother la 2eme image de 0.4 sur le x-axis et 0.5 sur le y-axis */
+}
+
+.img-3{
+    transform: scale(0.3) rotate(-20deg); /* smoother de 0.3 sur le x-axis et le y-axis, ajouter une rotation de -20deg */
+}
+
+/* afficher uniquement l'image qui a la classe show */
+.image.show{
+    opacity: 1;
+    transform: none; /* quand l'image est affiché on la remet à sa position initiale */
+}
+
+/* contenu des texte de pub et des 3 points de défilement */
+.text-slider{
+    display: flex; /* rendre fléxible la position des éléments dans le text-slider*/
+    align-items: center; /* centrer verticalement les textes dans le conteneur text-slider */
+    justify-content: center; /* centrer horizontalement les contenus (texte) dans le text-slider */
+    flex-direction: column; /* mettre les contenus dans la même colonne */
+}
+
+/* conteneur de text-group */
+.text-wrap{
+    max-height: 2.2rem; /* définir la taille maximale des texte en 2.2rem */
+    overflow: hidden; /* masquer les textes et n'afficher qu'un à la fois */
+    margin-bottom: 2.5rem; /* ajouter une marge de 2.5rem en-dessous du texte , c-a-d séparer le texte et les 3 points de 
+    défilement de 2.5rem*/
+}
+
+.text-group{
+    display: flex; /* rendre fléxible la position du contenu */
+    flex-direction: column; /* mettre le contenu dans une seule colonne */
+    text-align: center; /* centrer horizontalement le contenu */
+    transform: translateY(0);
+    transition: 0.7s;
+}
+
+.text-group h2{
+    line-height: 2.2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+/* conteneur du span où il y a les 3 poinst de défilement du carousel*/
+.bullets{
+    display: flex; /* rendre fléxible la position des éléments dans le conteneur */
+    align-items: center; /* centrer verticalement le contenu */
+    justify-content: center; /* centrer horizontalement le contenu */
+}
+
+/* les 3 points du défilement, c-a-d un span = 1 point de défilement*/
+.bullets span{
+    display: block; /* les 3 points sont inline par défaut et on leur ajoute un display block */
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #aaa;
+    margin: 0 0.25rem; /* ajouter une marge de 0 à gauche et de 0.25rem à droite de chacun des 3 points de défilement */
+    border-radius: 50%; /* ajouter un raccord ou border-radius de 50% aux 3 points qui sont encore des carrés */
+    cursor: pointer;
+    transition: .5s ease; /* ajouter un effet retardataire de .5s au moment où on click sur un autre point */
+}
+
+/* le point de défilement avec la classe active est le point principal*/
+.bullets span.active{
+    width: 1.1rem; /* élargir un peu la longueur pour distinguer le point active au moment */
+    background-color: #151111;
+    border-radius: 1rem; /* ajouter un border-radius de 1rem pour éviter la forme très ovale du point principal */
+}
+
+/* code responsable du site responsive */
+@media (max-width: 850px){ /* quand la taille du width est inférieur à 850px il faut ajuster toutes les propriétés des éléments en fonction de la taille de la fenêtre qui va l'héberger*/
+    .box{
+        height: auto; /* automatiser la hauteur pour s'adapter à la fenêtre */
+        max-width: 550px; /* définir la largeur maximale du conteneur box à 550px */
+        overflow: hidden;  
+    }
+
+    .inner-box{
+        position: static; /* éliminer le position absolute */
+        transform: none; /* éliminer le tranform translate */
+        width: revert; /* éliminer les définitions du width et height */
+        height: revert;
+        padding: 2rem;
+    }
+
+    .forms-wrap{
+        position: revert; /* éliminer la définition de la position suivante */
+        height: auto; /* ajuster la hauteur en fonction de la fenêtre */
+        width: 100%; /* ajuster le width du forms-wrap pour occuper tout l'espace de la largeur du conteneur principal */
+    }
+
+    form{
+        max-width: revert;
+        padding: 1.5rem 2.5rem 2rem;
+        transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+    }
+
+    .heading{
+        margin: 2rem 0;
+    }
+
+    form.sign-up-form{
+        transform: translateX(100%);
+    }
+
+    main.sign-up-mode form.sign-in-form{
+        transform: translateX(-100%);
+    }
+
+    main.sign-up-mode form.sign-up-form{
+        transform: translateX(0%);
+    }
+
+    /* faire la même chose dans forms-wrap à carousel */
+    .carousel{
+        position: revert;
+        height: auto;
+        width: 100%;
+        padding: 3rem 2rem;
+        display: flex;
+    }
+
+    .images-wrapper{
+        display: none; /* ne pas afficher les images dans le carousel */
+    }
+
+    .text-slider{
+        width: 100%; /* ajuster le conteneur du texte pour remplir toute la largeur */
+    }
+}
+
+@media (max-width: 530px){
+    main{
+        padding: 1rem;
+    }
+
+    .box{
+        border-radius: 2rem;
+    }
+
+    .inner-box{
+        padding: 1rem;
+    }
+
+    .carousel{
+        padding: 1.5rem 1rem;
+        border-radius: 1.6rem;
+    }
+
+    .text-wrap{
+        margin-bottom: 1rem;
+    }
+
+    .text-group h2{
+        font-size: 1.2rem;
+    }
+
+    form{
+        padding: 1rem 2rem 1.5rem;
+    }
+}

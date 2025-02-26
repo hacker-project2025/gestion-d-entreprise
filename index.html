@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-vatsy sign in & sign up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="Fonts/css/all.min.css">
+    <link rel="stylesheet" href="Fonts/css/fontawesome.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <div class="inner-box">
+                <div class="forms-wrap">
+                    <form action="index.html" autocomplete="off" class="sign-in-form"> <!-- le autocomplete laisse libre-choix à la saisie qu'à l'autocompletion des input -->
+                        <div class="logo">
+                            <img src="images/logo.png" alt="">
+                            <h4></h4>
+                        </div>
+
+                        <div class="heading">
+                            <h2>Welcome Back</h2>
+                            <h6>Not registered yet?</h6>
+                            <a href="#" class="toggle">Sign up</a>
+                        </div>
+
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input 
+                                type="text"
+                                minlength="4"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Company Name</label>
+                                <span><i class="fa fa-user-tie"></i></span>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input 
+                                type="email"
+                                minlength="4"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Email</label>
+                                <span class="icon"><i class="fa fa-envelope"></i></span>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input 
+                                type="type"
+                                minlength="4"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Type</label>
+                                <span class="icon"><i class="fa fa-industry"></i></span>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input 
+                                type="access_code"
+                                minlength="8"
+                                class="input-field"
+                                autocomplete="off"
+                                required
+                                />
+
+                                <label>Access Code</label>
+                                <span><i class="fa fa-eye-slash"></i></span>
+                            </div> 
+
+
+
+
+                            
+
+                            <input type="submit" value="Sign In" class="sign-btn"/>
+
+                            <p class="text">
+                                Forgotten your password or login details?
+                                <a href="#">Get help</a> signing in<!-- Il faut associer le lien à une page d'aide -->
+                            </p>
+                        </div>
+                    </form>
+
+                    <form action="index.html" autocomplete="off" class="sign-up-form"> <!-- le autocomplete laisse libre-choix à la saisie qu'à l'autocompletion des input -->
+                        <div class="logo">
+                            <img src="images/logo.png" alt="e-vatsy">
+                            <h4></h4>
+                        </div>
+
+                        <div class="heading">
+                            <h2>Get Started</h2>
+                            <h6>Already have an account?</h6>
+                            <a href="#" class="toggle">Sign in</a>
+                        </div>
+
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input 
+                                type="text"
+                                minlength="4"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Company Name</label>
+                                <span><i class="fa fa-user-tie"></i></span>
+
+                            </div>
+
+                            <div class="input-wrap">
+                                <input 
+                                type="email"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Email</label>
+                                <span><i class="fa fa-envelope"></i></span>
+                                
+                            </div>
+
+                            <div class="input-wrap">
+                                <input 
+                                type="type"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Type</label>
+                                <span><i class="fa fa-industry"></i></span>
+                            </div>
+                            
+                            <div class="input-wrap">
+                                <input 
+                                type="location"
+                                class="input-field"
+                                autocomplete="off"   
+                                required
+                                />
+                                <!--id="name" : enlever l'id name et ne pas les associer à l'input--> 
+
+                                <label>Location</label>
+                                <span><i class="fa fa-location-dot"></i></span>
+                            </div>
+
+                            <input type="submit" value="Sign Up" class="sign-btn"/>
+
+                            <p class="text">
+                                By signing up, I agree to the <a href="#">Terms of Services</a>
+                                and <a href="#">Privacy Policy</a>                                
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="carousel">
+
+                    <div class="images-wrapper">
+                        <img src="images/8.png" class="image img-1 show" alt="">
+                        <img src="images/9.png" class="image img-2" alt="">
+                        <img src="images/10.png" class="image img-3" alt="" style="padding-top: 5rem;">
+                    </div>
+
+                    <div class="text-slider">
+                        <div class="text-wrap">
+                            <div class="text-group">
+                                <h2>Visualize products intelligently</h2>
+                                <h2>Build stronger partnership</h2>
+                                <h2>Encrypt your data, ensure trust</h2>
+                            </div>
+                        </div>
+
+                        <div class="bullets">
+                            <span class="active" data-value="1"></span>
+                            <span data-value="2"></span>
+                            <span data-value="3"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <!--JS file-->
+    <script src="app.js"></script>
+</body>
+
+</html>
