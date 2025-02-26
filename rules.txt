@@ -1,0 +1,7 @@
+Salama daholo !!! Ity no plate-forme de développement natokana ho an'ilay projet antsika <--> mba hahafahana mijery ny avancement en temps réel ny projet (eny fa na dia tsy manana PC aza kanefa manana apk afaka ijerevana ny rendu).
+
+<--> Manana zo ny rehetra handefa ny heviny ato mahakasika ny parties rehetra manitikitika azy ao @ projet (ex : erreur, préférences, ...)
+
+<--> Hiangaviana isika hanisy readme.txt (fichier mazava ny mahakasika ilay nampidirina tato @ github mba tsy ho sahirana ny rehetra manakatra azy) rehefa mandefa code ato
+
+<--> !!! Fadiana ny manome ny lien github any @ namana na groupe hafa (hialàna @ modification mety hataon'izy ireo rehefa akaiky ny présentation an'ny projet)
